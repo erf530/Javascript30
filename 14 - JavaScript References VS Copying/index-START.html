@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>JS Reference VS Copy</title>
 </head>
+
 <body>
 
   <script>
     // start with strings, numbers and booleans
 
+
     // Let's say we have an array
     const players = ['Wes', 'Sarah', 'Ryan', 'Poppy'];
 
     // and we want to make a copy of it.
+    const team = players
+    // team[3] = 'lux'
+    //bc we update the original array, will always reference back
 
     // You might think we can just do something like this:
 
@@ -27,12 +33,20 @@
     // So, how do we fix this? We take a copy instead!
 
     // one way
+    const team2 = players.slice()
 
     // or create a new array and concat the old one in
+    const team3 = [].concat(players)
 
     // or use the new ES6 Spread
-
+    const team4 = [...players]
     // now when we update it, the original one isn't changed
+    team4[3] = 'pop'
+
+    //using Array.from
+    const team5 = Array.from(players)
+    team5[3] = 'ok'
+
 
     // The same thing goes for objects, let's say we have a person object
 
@@ -43,14 +57,34 @@
     };
 
     // and think we make a copy:
+    const captain = person
+    // captain.number = 99;
 
     // how do we take a copy instead?
+    const cap2 = Object.assign({}, person, { number: 99 })
+    console.log(cap2)
 
     // We will hopefully soon see the object ...spread
-
+    const cap3 = { ...person, dog: 'archie' }
     // Things to note - this is only 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it.
+    const wes = {
+      name: 'Wes Bos',
+      age: 100,
+      social: {
+        twitter: '@wesbos',
+        facebook: '@wesbos'
+      }
+    };
+    //object.assign only does ONE level deep, need clone deep to get next level
+
+    //another option, take JSON that returns a string then parse back to an object to get full copy. No idea about performance. "Poor mans deep clone"
+    const dev2 = JSON.parse(JSON.stringify(wes))
+
+    const dev = { ...wes }
+
 
   </script>
 
 </body>
+
 </html>
