@@ -1,0 +1,23 @@
+{
+  "name": "javascript30",
+  "version": "1.0.0",
+  "description": "![](https://javascript30.com/images/JS3-social-share.png)",
+  "main": "index.js",
+  "dependencies": {
+    "babel-eslint": "^10.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erf530/Javascript30.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/erf530/Javascript30/issues"
+  },
+  "homepage": "https://github.com/erf530/Javascript30#readme"
+}
